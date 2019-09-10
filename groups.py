@@ -1,3 +1,8 @@
+# El proposito de este archivo es mantener ordenado
+# el digito que tiene la base con su respectivo valor
+# este tiene más sentido en bases mayores a 10, pues
+# estos usan otros caracteres además del 0 al 9
+
 BINARY = {
     "0": 0,
     "1": 1

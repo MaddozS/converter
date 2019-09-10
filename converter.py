@@ -89,19 +89,37 @@ class Application(Frame):
                 baseNumber = base.numberBase
         return baseNumber
 
+    # Aquí sucede la magia...
     def convertNumber(self):
+        # Obtenemos las entradas de nuestra app
         base = self.getNumberBase()
         number = self.input.get()
         baseResult = self.getNumberBaseResult()
         x = False
+
+        # Si la base a la que queremos convertir es 10,
+        # solo ocuparemos una función
         if baseResult == 10:
             x = anyBaseToDecimal(number, base)
+        # en caso de que sea al revés, que nuestro numero
+        # inicial sea base 10, se usará una función diferente
         elif base == 10:
             x = decimalToAnyBase(number, baseResult)
+        
+        # Si las bases son diferentes a 10, se usarán las 
+        # 2 funciones, para convertir el numero a decimal
+        # y el resultado a la base deseada
         else:
             xDecimal = anyBaseToDecimal(number, base)
+            # este if existe porque la primera funcion puede fallar,
+            # así evitamos seguir arrastrando errores
             if xDecimal is not False:
                 x = decimalToAnyBase(xDecimal, baseResult)
+        
+        # Como nuestra x solo puede tener, ya sea nuestro numero o
+        # la sentencia False, unicamente la ponemos sin ninguna condicional
+        # pues Python puede dar como verdaro la sentencia si nuestra 
+        # variable tiene valor
         if x:
             self.result.configure(text="Your result is: " + str(x))
         else:
