@@ -23,7 +23,7 @@ def decimalToAnyBase(number, baseNumber):
     # Condicional que verifica si cada caracter de nuestro numero a 
     # convertir se encuentra dentro del conjunto de los numeros de
     # la base10.
-    if checkNumber(str(number), group)
+    if checkNumber(str(number), group):
         result = ""
         # Hacemos un ciclo hasta que el numero inicial hasta que
         # este sea igual a 0
@@ -40,8 +40,10 @@ def decimalToAnyBase(number, baseNumber):
             # por ejemplo, si obtenemos un 6 y queremos convertir en base 7,
             # este iterará nuestro diccionario en dos valores (la llave y el valor) y
             # únicamente asignará la llava la cual tenga de valor nuestro residuo (la
-            # llave es el digito)
-            digit = key for key, value in NUMBER_BASE[baseNumber].items() if value == res
+            # llave es el digito).
+            # Ahora, como este se asigna a un arreglo, como es un arreglo de un digito,
+            # con [0] lo obtenemos
+            digit = [key for key, value in NUMBER_BASE[int_baseNumber].items() if value == res][0]
             result += digit
         # Como nuestra cadena de nuestra conversión de armó de manera inversa,
         # este se debe retornar de manera inversa, con Python se puede usar

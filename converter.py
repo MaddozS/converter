@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
-from from_decimal import *
-from to_decimal import *
+from from_decimal import decimalToAnyBase
+from to_decimal import anyBaseToDecimal
 
 basesList = []
 basesNames = []
@@ -103,6 +103,7 @@ class Application(Frame):
             x = anyBaseToDecimal(number, base)
         # en caso de que sea al revés, que nuestro numero
         # inicial sea base 10, se usará una función diferente
+
         elif base == 10:
             x = decimalToAnyBase(number, baseResult)
         
@@ -128,7 +129,6 @@ class Application(Frame):
 root = Tk()
 app = Application(master=root)
 app.master.title("Conversor de bases")
-app.master.maxsize(1000, 400)
 root.grid_rowconfigure(0, weight=1)
 root.grid_rowconfigure(1, weight=1)
 root.grid_rowconfigure(2, weight=1)
